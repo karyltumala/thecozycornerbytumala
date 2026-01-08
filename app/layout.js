@@ -23,28 +23,49 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Search Console Verification */}
+        <meta
+          name="google-site-verification"
+          content="3s6XBJ3VfdmzmZHRgBCwIT5U-5Pg30GbSlk2KGquhCU"
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-orange-50 text-zinc-800`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          backgroundColor: "var(--background)",
+          color: "var(--foreground)",
+        }}
       >
-        <header className="border-b border-orange-200 bg-orange-100 shadow-sm">
+        <header
+          className="border-b"
+          style={{ backgroundColor: "var(--header-bg)" }}
+        >
           <div className="mx-auto max-w-6xl flex justify-between items-center p-4">
-            <h1 className="text-2xl font-semibold text-orange-800 hover:text-orange-600 transition-colors">
+            <h1
+              className="text-xl font-semibold"
+              style={{ color: "var(--header-text)" }}
+            >
               <Link href="/">The Cozy Corner</Link>
             </h1>
-            <nav className="space-x-4 text-sm text-orange-700">
-              <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-orange-500 transition-colors">About</Link>
-              <Link href="/books" className="hover:text-orange-500 transition-colors">Books</Link>
-              <Link href="/contact" className="hover:text-orange-500 transition-colors">Contact</Link>
+            <nav
+              className="space-x-4 text-sm"
+              style={{ color: "var(--header-text)" }}
+            >
+              <Link href="/">Home</Link>
+              <Link href="/about">About</Link>
+              <Link href="/books">Books</Link>
+              <Link href="/contact">Contact</Link>
             </nav>
           </div>
         </header>
 
-        <main className="mx-auto max-w-6xl p-6">
-          {children}
-        </main>
+        <main className="mx-auto max-w-6xl p-6">{children}</main>
 
-        <footer className="text-center text-sm text-orange-700 py-6 bg-orange-100 border-t border-orange-200">
+        <footer
+          className="text-center text-sm py-6"
+          style={{ backgroundColor: "var(--footer-bg)", color: "var(--footer-text)" }}
+        >
           © 2026 The Cozy Corner by Karyl Kaye Tumala
         </footer>
       </body>
